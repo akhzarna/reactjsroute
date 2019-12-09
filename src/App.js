@@ -2,7 +2,7 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-import Testone from './Testone.js'
+import fire from './Fire'
 
 import { BrowserRouter as Router, Redirect, Switch, Route, Link } from 'react-router-dom';
 
@@ -41,6 +41,17 @@ class App extends React.Component {
 
       return <Redirect to='/Dashboard' />
 
+  }
+
+
+  componentDidMount(){
+    alert('Test Alert');
+
+    fire.auth().signInWithEmailAndPassword('test1@gmail.com','123456').then((u)=>{
+      alert('Successfully Signed In');
+    }).catch((error)=>{
+      alert('Login or password is not Correct');
+    });
   }
 
   render() {
